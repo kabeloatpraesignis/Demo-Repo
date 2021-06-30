@@ -1,0 +1,27 @@
+<form [formGroup]="loginForm" class="alert alert-dark" >
+  <div class="alert alert-danger" [hidden]="!errorMsg">
+    {{ loginModel.errorMessage |json }}
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" formControlName="email" class="form-control"  aria-describedby="emailHelp" placeholder="Enter email" [ngClass]="{'alert alert-danger':loginModel.errorFlag}">
+
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" formControlName="password" class="form-control"  placeholder="Password" [ngClass]="{'alert alert-danger':passwordFlag}">
+  </div>
+  <div class="form-check">
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="login()" >Submit</button>
+</form>
+
+<div class="row">
+  <div class="col-9">
+    form values: {{ loginModel.errorMessage | json }}<br/>
+    form is valid: {{ loginForm.valid }}<br/>
+    form is pristine: {{ loginForm.pristine }}<br/>
+    form is touched: {{ loginForm.touched }}<br/>
+    form is dirty: {{ loginForm.dirty }} <br/>
+  </div>
+</div>
